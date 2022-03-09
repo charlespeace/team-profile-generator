@@ -116,8 +116,10 @@ function newTeam() {
             teamMembers.push(employee)
         })
     }
+    
     newEmployee()
 }
+
 newTeam()
 
 
