@@ -1,5 +1,3 @@
-
-const Employee = require('./lib/Employee.js')
 const Manager = require('./lib/Manager.js')
 const Engineer = require('./lib/Engineer.js')
 const Intern = require('./lib/Intern.js')
@@ -29,6 +27,23 @@ function newTeam() {
             }
         })
     }
+
+    function addAnother() {
+        inquirer
+        .prompt([
+            {
+                type: 'confirm',
+                name: 'add',
+                message: 'Would you like to add another team member?'
+            }
+        ])
+        .then(answer => {
+            if (answer.add === true) {
+                newEmployee()
+            } 
+        })
+    }
+
     function addManager() {
         inquirer
         .prompt([    
@@ -56,8 +71,10 @@ function newTeam() {
         .then(answers => {
             const employee = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
             teamMembers.push(employee)
+            addAnother()
         })
     }
+
     function addEngineer() {
         inquirer
         .prompt([    
@@ -85,8 +102,10 @@ function newTeam() {
         .then(answers => {
             const employee = new Engineer(answers.name, answers.id, answers.email, answers.github)
             teamMembers.push(employee)
+            addAnother()
         })
     }
+    
     function addIntern() {
         inquirer
         .prompt([    
@@ -114,8 +133,10 @@ function newTeam() {
         .then(answers => {
             const employee = new Intern(answers.name, answers.id, answers.email, answers.school)
             teamMembers.push(employee)
+            addAnother()
         })
     }
+
     
     newEmployee()
 }
