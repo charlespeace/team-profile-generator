@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 1vw;
+}
+
+.header {
+    background-color: rgb(86, 103, 255);
+    color: #fff;
+    text-align: center;
+}
+
+.contentpanel {
+    background-color: rgb(220, 227, 255);
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 1vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+}
+
+.cardheader {
+    background-color: rgb(86, 103, 255);
+    font-weight: 300;
+}
