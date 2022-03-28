@@ -1,8 +1,45 @@
-function generatePage() {
-
+const generatePage = members => {
+    const team = []
+    const createManager = manager => {
+        return `
+        <article>
+            <div>${manager.getName()}</div>
+            <div>(${manager.getRole()})</div>
+            <div>ID: ${manager.getId()}</div>
+            <div>Email: ${manager.getEmail()}</div>
+            <div>Office Number: ${manager.getOfficeNumber()}</div>
+        </article>
+        `
+    }
+    const createEngineer = engineer => {
+        return `
+        <article>
+            <div>${engineer.getName()}</div>
+            <div>(${engineer.getRole()})</div>
+            <div>ID: ${engineer.getId()}</div>
+            <div>$Email: {engineer.getEmail()}</div>
+            <div>Github: ${engineer.getGithub()}</div>
+        </article>
+        `
+    }
+    const createIntern = intern => {
+        return `
+        <article>
+            <div>${intern.getName()}</div>
+            <div>(${intern.getRole()})</div>
+            <div>${intern.getId()}</div>
+            <div>${intern.getEmail()}</div>
+            <div>${intern.getSchool()}</div>
+        </article>
+        `
+    }
+    team.push(members.filter(role => role.getRole() === 'Manager').map(manager => createManager(manager)))
+    team.push(members.filter(role => role.getRole() === 'Engineer').map(engineer => createEngineer(engineer)))
+    team.push(members.filter(role => role.getRole() === 'Intern').map(intern => createIntern(intern)))
+    return team.join('')
 }
 
-module.exports = () => {
+module.exports = members => {
     return `
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +65,7 @@ module.exports = () => {
         <section>
             <div>
                 <div>
-                    ${generatePage()}
+                    ${generatePage(members)}
                 </div>
             </div>
         </section>
