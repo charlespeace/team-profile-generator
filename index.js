@@ -4,6 +4,13 @@ const Intern = require('./lib/Intern.js')
 
 const inquirer = require('inquirer')
 
+const path = require('path');
+const outputDirectory = path.resolve(__dirname, "output")
+const outputPath = path.join(outputDirectory, "team.html");
+
+const fs = require('fs')
+const generatePage = require('./src/template.js')
+
 teamMembers = []
 
 function newTeam() {
@@ -40,7 +47,9 @@ function newTeam() {
         .then(answer => {
             if (answer.add === true) {
                 newEmployee()
-            } 
+            } else {
+                writeToFile()
+            }
         })
     }
 
@@ -137,10 +146,12 @@ function newTeam() {
         })
     }
 
-    
+    function writeToFile() {
+        fs.writeFileSync(outputPath, generatePage(teamMembers), "utf-8")
+            console.log('File created!')
+    }
+
     newEmployee()
 }
 
 newTeam()
-
-
