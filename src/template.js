@@ -17,7 +17,7 @@ const generatePage = members => {
             <h2 class="header">${engineer.getName()}</h2>
             <div class="header">(${engineer.getRole()})</div>
             <div>ID: ${engineer.getId()}</div>
-            <div>$Email: ${engineer.getEmail()}</div>
+            <div>Email: ${engineer.getEmail()}</div>
             <div>Github: ${engineer.getGithub()}</div>
         </article>
         `
@@ -27,15 +27,15 @@ const generatePage = members => {
         <article class="card">
             <h2 class="header">${intern.getName()}</h2>
             <div class="header">(${intern.getRole()})</div>
-            <div>${intern.getId()}</div>
-            <div>${intern.getEmail()}</div>
-            <div>${intern.getSchool()}</div>
+            <div>ID: ${intern.getId()}</div>
+            <div>Email: ${intern.getEmail()}</div>
+            <div>School: ${intern.getSchool()}</div>
         </article>
         `
     }
-    team.push(members.filter(role => role.getRole() === 'Manager').map(manager => createManager(manager)))
-    team.push(members.filter(role => role.getRole() === 'Engineer').map(engineer => createEngineer(engineer)))
-    team.push(members.filter(role => role.getRole() === 'Intern').map(intern => createIntern(intern)))
+    team.push(members.filter(role => role.getRole() === 'Manager').map(manager => createManager(manager)).join(''))
+    team.push(members.filter(role => role.getRole() === 'Engineer').map(engineer => createEngineer(engineer)).join(''))
+    team.push(members.filter(role => role.getRole() === 'Intern').map(intern => createIntern(intern)).join(''))
     return team.join('')
 }
 
