@@ -14,5 +14,8 @@ An organizer that prompts the user to enter team member information, and compile
 ## Screenshot
 https://user-images.githubusercontent.com/95883433/160505121-377449d8-956f-49db-b3d6-825690360f2a.png
 
+## Demo video
+https://drive.google.com/file/d/1mwie16UVRgISTs0eB1O3i4oPTXs8vf-E/view
+
 ## Contribution
 Created by Charles Peace
